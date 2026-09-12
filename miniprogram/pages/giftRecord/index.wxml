@@ -1,0 +1,82 @@
+<view class="container">
+  <view class="top-bar" wx:if="{{records.length > 0}}">
+    <view class="btn-stats" bindtap="goToStats">礼金统计 ›</view>
+  </view>
+
+  <view class="record-list" wx:if="{{records.length > 0}}">
+    <view class="record-header">
+      <text class="header-date">日期</text>
+      <text class="header-source">来源人</text>
+      <text class="header-desc">说明</text>
+      <text class="header-amount">金额</text>
+      <text class="header-action">操作</text>
+    </view>
+    <view class="record-item" wx:for="{{records}}" wx:key="_id">
+      <view class="record-date">{{item.recordDate}}</view>
+      <view class="record-source">{{item.source}}</view>
+      <view class="record-desc">{{item.description || '--'}}</view>
+      <view class="record-amount">¥{{item.amount}}</view>
+      <view class="record-actions">
+        <view class="btn-edit" bindtap="onEdit" data-id="{{item._id}}" data-date="{{item.recordDate}}" data-source="{{item.source}}" data-description="{{item.description}}" data-amount="{{item.amount}}" data-remark="{{item.remark}}">修改</view>
+        <view class="btn-delete" bindtap="onDelete" data-id="{{item._id}}">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="pagination" wx:if="{{total > 0}}">
+    <view class="page-btn {{currentPage <= 1 ? 'disabled' : ''}}" bindtap="prevPage">‹</view>
+    <view class="page-info"><text>{{currentPage}} / {{totalPages}}</text></view>
+    <view class="page-btn {{currentPage >= totalPages ? 'disabled' : ''}}" bindtap="nextPage">›</view>
+    <view class="page-jump">
+      <input class="page-input" type="number" placeholder="页码" value="{{jumpPage}}" bindinput="onJumpPageInput" />
+      <view class="page-go" bindtap="jumpToPage">Go</view>
+    </view>
+  </view>
+
+  <view class="list-footer" wx:if="{{total > 0}}">共 {{total}} 条记录</view>
+
+  <view class="empty-state" wx:if="{{records.length === 0}}">
+    <view class="empty-icon"></view>
+    <view class="empty-text">暂无礼金记录</view>
+    <view class="empty-hint">点击下方按钮添加</view>
+  </view>
+
+  <view class="add-btn" bindtap="showAdd">+</view>
+
+  <view class="modal-mask" wx:if="{{showModal}}">
+    <view class="modal-close" bindtap="hideModal"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <view class="modal-title">{{isEdit ? '修改礼金' : '记录礼金'}}</view>
+      </view>
+
+      <picker mode="date" value="{{formDate}}" end="{{today}}" bindchange="onDateChange">
+        <view class="form-item">
+          <text class="form-label">日期</text>
+          <text class="form-value">{{formDate}}</text>
+          <text class="form-arrow">›</text>
+        </view>
+      </picker>
+
+      <view class="form-item">
+        <text class="form-label">来源人</text>
+        <input placeholder="如：爸爸、妈妈" value="{{formSource}}" bindinput="onSourceInput" class="form-input" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">说明</text>
+        <input placeholder="如：压岁钱、生日红包" value="{{formDescription}}" bindinput="onDescriptionInput" class="form-input" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">金额</text>
+        <input type="digit" placeholder="请输入金额" value="{{formAmount}}" bindinput="onAmountInput" class="form-input" />
+      </view>
+
+      <view class="modal-buttons">
+        <view class="btn-cancel" bindtap="hideModal">取消</view>
+        <view class="btn-confirm" bindtap="onConfirm">{{isEdit ? '修改' : '确定'}}</view>
+      </view>
+    </view>
+  </view>
+</view>

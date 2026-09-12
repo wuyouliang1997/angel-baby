@@ -1,0 +1,46 @@
+<view class="container">
+  <view wx:if="{{loading}}">
+    <view class="loading-text">加载中...</view>
+  </view>
+
+  <view wx:elif="{{!isOwner}}">
+    <view class="empty-card">
+      <view class="empty-icon">🔒</view>
+      <view class="empty-title">你是共享成员</view>
+      <view class="empty-desc">该宝宝的共享码由创建者管理，你已可以查看宝宝的记录</view>
+    </view>
+  </view>
+
+  <view wx:elif="{{!shareInfo}}">
+    <view class="empty-card">
+      <view class="empty-icon">↩</view>
+      <view class="empty-title">未生成共享码</view>
+      <view class="empty-desc">生成共享码后，其他微信用户输入该码即可查看宝宝的记录</view>
+      <view class="gen-btn" bindtap="generate">生成共享码</view>
+    </view>
+  </view>
+
+  <view wx:else>
+    <view class="code-card">
+      <view class="code-label">共享码</view>
+      <view class="code-value">{{shareInfo.shareCode}}</view>
+      <view class="code-hint">将此码分享给家人，输入后即可共享宝宝数据</view>
+      <view class="copy-btn" bindtap="copyCode">复制共享码</view>
+    </view>
+
+    <view class="member-card">
+      <view class="member-title">共享成员（{{shareInfo.sharedOpenids ? shareInfo.sharedOpenids.length : 0}}人）</view>
+      <view class="member-list" wx:if="{{shareInfo.sharedOpenids.length > 0}}">
+        <view class="member-item" wx:for="{{shareInfo.sharedOpenids}}" wx:key="openid" wx:for-item="member">
+          <view class="member-avatar"></view>
+          <view class="member-info">
+            <view class="member-name">{{member.nickname || '家人'}}</view>
+          </view>
+          <view class="remove-btn" bindtap="removeUser" data-openid="{{member.openid}}">移除</view>
+        </view>
+      </view>
+      <view class="member-empty" wx:else>暂无共享成员</view>
+    </view>
+  </view>
+
+</view>

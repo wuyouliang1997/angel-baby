@@ -1,0 +1,318 @@
+page {
+  background-color: #FFF5F5;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 60rpx 40rpx;
+  font-family: PingFang SC;
+}
+
+/* 功能入口卡片 */
+.feature-card {
+  background: linear-gradient(135deg, #FF9B9B, #FFB5B5);
+  border-radius: 28rpx;
+  padding: 40rpx 36rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+  height: 196rpx;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 12rpx 48rpx rgba(255, 155, 155, 0.4);
+}
+
+.feature-icon-box {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 22rpx;
+  margin-right: 32rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pink-icon {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.orange-icon {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.icon-dot {
+  width: 52rpx;
+  height: 44rpx;
+  background: #fff;
+  border-radius: 22rpx;
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12rpx;
+}
+
+.feature-desc {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.feature-arrow {
+  font-size: 44rpx;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 宝宝信息卡片 */
+.baby-card {
+  background: linear-gradient(135deg, #FF9B9B, #FFB5B5);
+  border-radius: 28rpx;
+  padding: 48rpx 40rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50rpx;
+  box-shadow: 0 10rpx 40rpx rgba(255, 155, 155, 0.35);
+  position: relative;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 操作按钮区域 */
+.baby-actions {
+  position: absolute;
+  top: 24rpx;
+  right: 24rpx;
+  display: flex;
+  gap: 16rpx;
+}
+
+.action-btn {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-icon {
+  font-size: 28rpx;
+}
+
+.add-btn {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.edit-btn {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.switch-btn {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.delete-btn {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+/* 家庭共享卡片 */
+.share-cards {
+  margin-top: 30rpx;
+  display: flex;
+  gap: 20rpx;
+}
+
+.share-card {
+  flex: 1;
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 36rpx 32rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.share-card-icon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 18rpx;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.create-icon {
+  background: linear-gradient(135deg, #7EC8E3, #A8D8EA);
+}
+
+.join-icon {
+  background: linear-gradient(135deg, #98D8AA, #B8E6C8);
+}
+
+.share-card-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.share-card-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6rpx;
+}
+
+.share-card-desc {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.share-card-arrow {
+  font-size: 36rpx;
+  color: #ccc;
+  flex-shrink: 0;
+  margin-left: 8rpx;
+}
+
+/* 弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.modal-close { flex: 1; }
+.modal-content {
+  width: 100%; background: #fff;
+  border-radius: 36rpx 36rpx 0 0;
+  padding: 48rpx 40rpx; box-sizing: border-box;
+}
+.modal-header { text-align: center; margin-bottom: 48rpx; }
+.modal-title { font-size: 40rpx; font-weight: 600; color: #333; }
+
+.form-item { display: flex; align-items: center; padding: 36rpx 0; border-bottom: 1rpx solid #f5f5f5; }
+.form-label { font-size: 32rpx; color: #333; width: 160rpx; flex-shrink: 0; }
+.form-input { flex: 1; font-size: 32rpx; color: #333; text-align: right; }
+
+.modal-buttons { display: flex; margin-top: 60rpx; gap: 36rpx; }
+.btn-cancel { flex: 1; height: 96rpx; display: flex; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 48rpx; font-size: 34rpx; color: #666; }
+.btn-confirm { flex: 1; height: 96rpx; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FF9B9B, #FFB5B5); border-radius: 48rpx; font-size: 34rpx; color: #fff; }
+
+.baby-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 36rpx;
+  flex-shrink: 0;
+}
+
+.default-avatar {
+  background: rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.default-avatar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60rpx;
+  height: 50rpx;
+  background: #fff;
+  border-radius: 30rpx;
+}
+
+.baby-info {
+  flex: 1;
+}
+
+.baby-name {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12rpx;
+}
+
+.baby-desc {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 添加宝宝卡片 */
+.add-card {
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 48rpx 40rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.06);
+  border: 2rpx dashed #FFB5B5;
+}
+
+.add-icon-wrapper {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFD1D1, #FFE0E0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 36rpx;
+  flex-shrink: 0;
+}
+
+.add-icon {
+  font-size: 60rpx;
+  color: #FF9B9B;
+}
+
+.add-content {
+  flex: 1;
+}
+
+.add-title {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.add-desc {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 没有宝宝提示 */
+.no-baby-tip {
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+.tip-text {
+  font-size: 28rpx;
+  color: #999;
+}
+
+/* 身高体重卡片 */
+.growth-card {
+  background: linear-gradient(135deg, #FFB347, #FFCC80);
+}
+
+/* 宝宝手账卡片 */
+.ledger-card {
+  background: linear-gradient(135deg, #66BB6A, #81C784);
+}
+
+.green-icon {
+  background: rgba(255, 255, 255, 0.3);
+}

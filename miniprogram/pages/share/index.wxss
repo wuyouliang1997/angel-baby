@@ -1,0 +1,25 @@
+page { background-color: #FFF5F5; min-height: 100vh; }
+.container { padding: 30rpx; font-family: PingFang SC; }
+.loading-text { text-align: center; padding: 120rpx; color: #999; font-size: 30rpx; }
+
+.empty-card { background: #fff; border-radius: 28rpx; padding: 80rpx 40rpx; text-align: center; box-shadow: 0 6rpx 24rpx rgba(0,0,0,0.06); }
+.empty-icon { font-size: 80rpx; margin-bottom: 24rpx; }
+.empty-title { font-size: 36rpx; font-weight: 600; color: #333; margin-bottom: 16rpx; }
+.empty-desc { font-size: 28rpx; color: #999; margin-bottom: 48rpx; line-height: 1.6; }
+.gen-btn { display: inline-block; padding: 20rpx 60rpx; background: linear-gradient(135deg, #FF9B9B, #FFB5B5); color: #fff; font-size: 32rpx; border-radius: 44rpx; font-weight: 600; }
+
+.code-card { background: #fff; border-radius: 28rpx; padding: 48rpx 40rpx; text-align: center; margin-bottom: 30rpx; box-shadow: 0 6rpx 24rpx rgba(0,0,0,0.06); }
+.code-label { font-size: 28rpx; color: #999; margin-bottom: 16rpx; }
+.code-value { font-size: 80rpx; font-weight: 700; color: #FF9B9B; letter-spacing: 16rpx; margin-bottom: 24rpx; }
+.code-hint { font-size: 26rpx; color: #999; margin-bottom: 32rpx; }
+.copy-btn { display: inline-block; padding: 16rpx 48rpx; background: #fff3f3; color: #FF9B9B; font-size: 28rpx; border-radius: 36rpx; border: 2rpx solid #FF9B9B; }
+
+.member-card { background: #fff; border-radius: 28rpx; overflow: hidden; box-shadow: 0 6rpx 24rpx rgba(0,0,0,0.06); }
+.member-title { padding: 30rpx 36rpx; font-size: 30rpx; font-weight: 600; color: #333; border-bottom: 1rpx solid #f5f5f5; }
+.member-item { display: flex; align-items: center; padding: 28rpx 36rpx; border-bottom: 1rpx solid #f5f5f5; }
+.member-avatar { width: 72rpx; height: 72rpx; background: #f0f0f0; border-radius: 50%; margin-right: 24rpx; }
+.member-info { flex: 1; }
+.member-name { font-size: 28rpx; color: #333; }
+.remove-btn { font-size: 26rpx; color: #ff6b6b; padding: 10rpx 24rpx; background: #fff0f0; border-radius: 10rpx; }
+.member-empty { padding: 48rpx; text-align: center; color: #ccc; font-size: 28rpx; }
+

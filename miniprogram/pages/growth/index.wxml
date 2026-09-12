@@ -1,0 +1,45 @@
+<!-- 宝宝信息头部 -->
+<baby-header baby="{{baby}}" bind:tapedit="onEditBaby" />
+
+<view class="container">
+  <!-- 最新记录卡片 -->
+  <view class="latest-card" wx:if="{{latestRecord}}">
+    <view class="latest-item">
+      <view class="latest-value red">{{latestRecord.height || '--'}}</view>
+      <view class="latest-label">身高(cm)</view>
+    </view>
+    <view class="latest-item">
+      <view class="latest-value blue">{{latestRecord.weight || '--'}}</view>
+      <view class="latest-label">体重(kg)</view>
+    </view>
+    <view class="latest-item">
+      <view class="latest-value">{{latestRecord.recordDate}}</view>
+      <view class="latest-label">记录日期</view>
+    </view>
+  </view>
+
+  <view class="latest-card empty" wx:else>
+    <view class="empty-text">暂无记录</view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goToRecord">
+      <view class="menu-icon record-growth-icon"></view>
+      <view class="menu-content">
+        <view class="menu-title">身高体重记录</view>
+        <view class="menu-desc">添加和查看身高体重记录</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+
+    <view class="menu-item" bindtap="goToAnalysis">
+      <view class="menu-icon analysis-growth-icon"></view>
+      <view class="menu-content">
+        <view class="menu-title">身高体重分析</view>
+        <view class="menu-desc">查看身高体重趋势统计</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+</view>

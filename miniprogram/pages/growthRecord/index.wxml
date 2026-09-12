@@ -1,0 +1,86 @@
+<view class="container">
+  <!-- 记录列表 -->
+  <view class="record-list" wx:if="{{records.length > 0}}">
+    <!-- 表头 -->
+    <view class="record-header">
+      <text class="header-date">日期</text>
+      <text class="header-height">身高</text>
+      <text class="header-weight">体重</text>
+      <text class="header-action">操作</text>
+    </view>
+    <!-- 数据行 -->
+    <view class="record-item" wx:for="{{records}}" wx:key="_id">
+      <view class="record-date">{{item.recordDate}}</view>
+      <view class="record-height">
+        <text class="record-h" wx:if="{{item.height}}">{{item.height}}cm</text>
+      </view>
+      <view class="record-weight">
+        <text class="record-w" wx:if="{{item.weight}}">{{item.weight}}kg</text>
+      </view>
+      <view class="record-actions">
+        <view class="btn-edit" bindtap="onEdit" data-id="{{item._id}}" data-date="{{item.recordDate}}" data-height="{{item.height}}" data-weight="{{item.weight}}">修改</view>
+        <view class="btn-delete" bindtap="onDelete" data-id="{{item._id}}">删除</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分页控件 -->
+  <view class="pagination" wx:if="{{total > 0}}">
+    <view class="page-btn {{currentPage <= 1 ? 'disabled' : ''}}" bindtap="prevPage">‹</view>
+    <view class="page-info">
+      <text>{{currentPage}} / {{totalPages}}</text>
+    </view>
+    <view class="page-btn {{currentPage >= totalPages ? 'disabled' : ''}}" bindtap="nextPage">›</view>
+    <view class="page-jump">
+      <input class="page-input" type="number" placeholder="页码" value="{{jumpPage}}" bindinput="onJumpPageInput" />
+      <view class="page-go" bindtap="jumpToPage">Go</view>
+    </view>
+  </view>
+
+  <view class="list-footer" wx:if="{{total > 0}}">
+    共 {{total}} 条记录
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{records.length === 0}}">
+    <view class="empty-icon"></view>
+    <view class="empty-text">暂无记录</view>
+    <view class="empty-hint">点击下方按钮添加</view>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn" bindtap="showModal">+</view>
+
+  <!-- 添加弹窗 -->
+  <view class="modal-mask" wx:if="{{showModal}}">
+    <view class="modal-close" bindtap="hideModal"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <view class="modal-title">{{isEdit ? '修改记录' : '记录身高体重'}}</view>
+      </view>
+
+      <picker mode="date" value="{{formDate}}" end="{{today}}" bindchange="onDateChange">
+        <view class="form-item">
+          <text class="form-label">日期</text>
+          <text class="form-value">{{formDate}}</text>
+          <text class="form-arrow">›</text>
+        </view>
+      </picker>
+
+      <view class="form-item">
+        <text class="form-label">身高 (cm)</text>
+        <input type="digit" placeholder="如：70.5" value="{{formHeight}}" bindinput="onHeightInput" class="form-input" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">体重 (kg)</text>
+        <input type="digit" placeholder="如：8.5" value="{{formWeight}}" bindinput="onWeightInput" class="form-input" />
+      </view>
+
+      <view class="modal-buttons">
+        <view class="btn-cancel" bindtap="hideModal">取消</view>
+        <view class="btn-confirm" bindtap="onConfirm">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

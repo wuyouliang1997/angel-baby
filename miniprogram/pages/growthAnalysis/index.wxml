@@ -1,0 +1,30 @@
+<view class="container">
+  <!-- 统计卡片 -->
+  <view class="stats-card">
+    <view class="stat-item">
+      <view class="stat-value red">{{latestHeight}}</view>
+      <view class="stat-label">身高(cm)</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-value blue">{{latestWeight}}</view>
+      <view class="stat-label">体重(kg)</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-value">{{totalCount}}</view>
+      <view class="stat-label">记录次数</view>
+    </view>
+  </view>
+
+  <!-- 折线图 -->
+  <view class="chart-card" wx:if="{{records.length > 0}}">
+    <view class="chart-title">身高体重趋势</view>
+    <view class="chart-wrap">
+      <canvas type="2d" id="growthChart" class="growth-chart"></canvas>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{records.length === 0}}">
+    <view class="empty-text">暂无数据</view>
+  </view>
+</view>

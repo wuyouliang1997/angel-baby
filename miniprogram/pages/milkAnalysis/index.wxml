@@ -1,0 +1,30 @@
+<view class="container">
+  <!-- 统计卡片 -->
+  <view class="stats-card">
+    <view class="stat-item">
+      <view class="stat-value">{{totalAmount}}</view>
+      <view class="stat-label">总奶量(ml)</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-value">{{avgAmount}}</view>
+      <view class="stat-label">日均(ml)</view>
+    </view>
+    <view class="stat-item">
+      <view class="stat-value">{{totalCount}}</view>
+      <view class="stat-label">总次数</view>
+    </view>
+  </view>
+
+  <!-- 折线图 -->
+  <view class="chart-card">
+    <view class="chart-title">每日奶量</view>
+    <view class="chart-wrap">
+      <canvas type="2d" id="lineChart" class="line-chart"></canvas>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-state" wx:if="{{chartData.length === 0}}">
+    <view class="empty-text">暂无数据</view>
+  </view>
+</view>

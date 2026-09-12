@@ -1,0 +1,44 @@
+.baby-header {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, #FF9B9B, #FFB5B5);
+  padding: 0 0 0 10rpx;
+  height: 90rpx;
+  overflow: visible;
+}
+
+.baby-name {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #fff;
+}
+
+.baby-avatar-wrapper {
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.baby-avatar {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 4rpx solid rgba(255, 255, 255, 0.8);
+  margin: 5rpx 5rpx 5rpx 0;
+}
+
+.default-avatar {
+  background: linear-gradient(135deg, #FF9B9B, #FFB5B5);
+  position: relative;
+}
+
+.default-avatar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40rpx;
+  height: 32rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}

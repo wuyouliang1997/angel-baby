@@ -1,0 +1,108 @@
+page {
+  background-color: #FFF5F5;
+  min-height: 100vh;
+}
+
+.container {
+  padding: 30rpx;
+  font-family: PingFang SC;
+}
+
+/* 本月汇总 */
+.summary-card {
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 36rpx 20rpx;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30rpx;
+  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.summary-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 16rpx;
+}
+
+.summary-divider {
+  width: 2rpx;
+  height: 60rpx;
+  background: #f0f0f0;
+  margin: 0 20rpx;
+  flex-shrink: 0;
+}
+
+.summary-label {
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 12rpx;
+}
+
+.summary-amount {
+  font-size: 48rpx;
+  font-weight: 700;
+}
+
+.summary-amount.expense {
+  color: #FF6B6B;
+}
+
+.summary-amount.gift {
+  color: #EF5350;
+}
+
+.menu-list {
+  background: #fff;
+  border-radius: 28rpx;
+  overflow: hidden;
+  box-shadow: 0 6rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 40rpx 36rpx;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 18rpx;
+  margin-right: 28rpx;
+  flex-shrink: 0;
+}
+
+.expense-icon {
+  background: linear-gradient(135deg, #FF8A65, #FFAB91);
+}
+
+.gift-icon {
+  background: linear-gradient(135deg, #EF5350, #E57373);
+}
+
+.menu-content {
+  flex: 1;
+}
+
+.menu-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8rpx;
+}
+
+.menu-desc {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.menu-arrow {
+  font-size: 40rpx;
+  color: #ccc;
+}

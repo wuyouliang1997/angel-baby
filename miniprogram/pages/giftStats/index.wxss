@@ -1,0 +1,41 @@
+page { background-color: #FFF5F5; min-height: 100vh; }
+.container { padding: 12rpx 10rpx; font-family: PingFang SC; }
+
+.filter-bar { display: flex; align-items: center; gap: 8rpx; margin-bottom: 12rpx; flex-wrap: nowrap; }
+.bar-date { font-size: 24rpx; padding: 14rpx 14rpx; background: #fff; border-radius: 20rpx; color: #333; white-space: nowrap; box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05); }
+.bar-sep { font-size: 22rpx; color: #ccc; flex-shrink: 0; }
+.bar-pick { display: flex; align-items: center; font-size: 24rpx; padding: 14rpx 18rpx; background: #fff; border-radius: 20rpx; color: #333; white-space: nowrap; box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05); }
+.bar-arrow { font-size: 26rpx; color: #ccc; margin-left: 6rpx; }
+
+.search-bar { display: flex; gap: 10rpx; margin-bottom: 16rpx; }
+.search-input { flex: 1; height: 64rpx; background: #fff; border-radius: 32rpx; padding: 0 24rpx; font-size: 26rpx; box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.05); }
+.search-btn { height: 64rpx; padding: 0 28rpx; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FF9B9B, #FFB5B5); border-radius: 32rpx; font-size: 26rpx; color: #fff; font-weight: 600; }
+
+.stats-table { background: #fff; border-radius: 28rpx; overflow: hidden; box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.06); }
+.stats-header { display: flex; padding: 24rpx 20rpx; background: #fafafa; border-bottom: 2rpx solid #f0f0f0; }
+.header-date { width: 170rpx; font-size: 24rpx; color: #999; font-weight: 600; }
+.header-source { width: 120rpx; font-size: 24rpx; color: #999; font-weight: 600; }
+.header-desc { flex: 1; font-size: 24rpx; color: #999; font-weight: 600; }
+.header-amt { width: 130rpx; text-align: right; font-size: 24rpx; color: #999; font-weight: 600; }
+
+.stats-row { display: flex; padding: 24rpx 20rpx; border-bottom: 1rpx solid #f5f5f5; }
+.row-date { width: 170rpx; font-size: 24rpx; color: #999; }
+.row-source { width: 120rpx; font-size: 26rpx; color: #333; }
+.row-desc { flex: 1; font-size: 24rpx; color: #999; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row-amt { width: 130rpx; text-align: right; font-size: 28rpx; font-weight: 600; color: #EF5350; }
+
+.stats-total { display: flex; padding: 28rpx 20rpx; background: #fafafa; align-items: center; }
+.total-label { flex: 1; font-size: 28rpx; font-weight: 700; color: #333; }
+.total-amt { width: 130rpx; text-align: right; font-size: 30rpx; font-weight: 700; color: #EF5350; }
+.total-pct { font-size: 24rpx; color: #999; margin-left: 16rpx; }
+
+.pagination { display: flex; align-items: center; justify-content: center; margin-top: 24rpx; gap: 16rpx; padding: 0 10rpx; }
+.page-btn { width: 64rpx; height: 64rpx; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 50%; font-size: 36rpx; color: #FF9B9B; box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.08); }
+.page-btn.disabled { opacity: 0.3; color: #ccc; }
+.page-info { font-size: 28rpx; color: #666; min-width: 80rpx; text-align: center; }
+.page-jump { display: flex; align-items: center; gap: 10rpx; margin-left: 16rpx; }
+.page-input { width: 80rpx; height: 56rpx; background: #fff; border-radius: 28rpx; text-align: center; font-size: 26rpx; box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.06); }
+.page-go { height: 56rpx; padding: 0 24rpx; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FF9B9B, #FFB5B5); border-radius: 28rpx; font-size: 26rpx; color: #fff; font-weight: 600; }
+
+.empty-state { padding: 120rpx 40rpx; text-align: center; }
+.empty-text { font-size: 34rpx; color: #999; }

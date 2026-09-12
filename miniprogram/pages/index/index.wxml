@@ -1,0 +1,121 @@
+<view class="container">
+  <!-- 宝宝信息卡片（有宝宝时显示） -->
+  <view class="baby-card" wx:if="{{currentBaby}}">
+    <!-- 右上角操作按钮 -->
+    <view class="baby-actions">
+      <view class="action-btn add-btn" catchtap="toggleAddForm">
+        <text class="action-icon">+</text>
+      </view>
+      <view class="action-btn edit-btn" wx:if="{{currentBaby.isOwner}}" catchtap="onEditBaby" data-id="{{currentBaby._id}}" data-nickname="{{currentBaby.nickname}}"
+            data-gender="{{currentBaby.gender}}" data-birthdate="{{currentBaby.birthDate}}" data-avatar="{{currentBaby.avatar}}">
+        <text class="action-icon">✎</text>
+      </view>
+      <view class="action-btn switch-btn" catchtap="onSwitchBaby">
+        <text class="action-icon">⇄</text>
+      </view>
+      <view class="action-btn delete-btn" wx:if="{{currentBaby.isOwner}}" catchtap="onDeleteBaby" data-id="{{currentBaby._id}}" data-name="{{currentBaby.nickname}}">
+        <text class="action-icon">✕</text>
+      </view>
+    </view>
+
+    <!-- 宝宝信息 -->
+    <image class="baby-avatar" src="{{currentBaby.avatar}}" wx:if="{{currentBaby.avatar}}"></image>
+    <view class="baby-avatar default-avatar" wx:else></view>
+    <view class="baby-info">
+      <view class="baby-name">{{currentBaby.nickname}}</view>
+      <view class="baby-desc">出生第{{currentBaby.days}}天（{{currentBaby.age}}）</view>
+    </view>
+  </view>
+
+  <!-- 添加宝宝卡片（没有宝宝时显示） -->
+  <view class="add-card" wx:if="{{!currentBaby}}" bindtap="toggleAddForm">
+    <view class="add-icon-wrapper">
+      <text class="add-icon">+</text>
+    </view>
+    <view class="add-content">
+      <view class="add-title">添加宝宝</view>
+      <view class="add-desc">添加第一个宝宝信息</view>
+    </view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="feature-card" bindtap="goToBabyPage">
+    <view class="feature-icon-box pink-icon">
+      <view class="icon-dot"></view>
+    </view>
+    <view class="feature-content">
+      <view class="feature-title">宝宝喂养助手</view>
+      <view class="feature-desc">记录喂养情况</view>
+    </view>
+    <view class="feature-arrow">›</view>
+  </view>
+
+  <view class="feature-card growth-card" bindtap="goToGrowth">
+    <view class="feature-icon-box orange-icon">
+      <view class="icon-dot"></view>
+    </view>
+    <view class="feature-content">
+      <view class="feature-title">宝宝身高体重</view>
+      <view class="feature-desc">记录宝宝身高体重变化</view>
+    </view>
+    <view class="feature-arrow">›</view>
+  </view>
+
+  <view class="feature-card ledger-card" bindtap="goToLedger">
+    <view class="feature-icon-box green-icon">
+      <view class="icon-dot"></view>
+    </view>
+    <view class="feature-content">
+      <view class="feature-title">宝宝手账</view>
+      <view class="feature-desc">记录日常开支和礼金收入</view>
+    </view>
+    <view class="feature-arrow">›</view>
+  </view>
+
+  <!-- 家庭共享入口 -->
+  <view class="share-cards">
+    <view class="share-card create-card" bindtap="goToShare">
+      <view class="share-card-icon create-icon"></view>
+      <view class="share-card-content">
+        <view class="share-card-title">创建家庭共享</view>
+        <view class="share-card-desc">生成共享码邀请家人</view>
+      </view>
+      <view class="share-card-arrow">›</view>
+    </view>
+    <view class="share-card join-card" bindtap="showJoinModal">
+      <view class="share-card-icon join-icon"></view>
+      <view class="share-card-content">
+        <view class="share-card-title">加入家庭共享</view>
+        <view class="share-card-desc">输入共享码加入家庭</view>
+      </view>
+      <view class="share-card-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 没有宝宝时的提示 -->
+  <view class="no-baby-tip" wx:if="{{!currentBaby}}">
+    <text class="tip-text">请先添加宝宝</text>
+  </view>
+
+  <!-- 加入共享弹窗 -->
+  <view class="modal-mask" wx:if="{{showJoinModal}}">
+    <view class="modal-close" bindtap="hideJoinModal"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <view class="modal-title">加入共享</view>
+      </view>
+      <view class="form-item">
+        <text class="form-label">你的名字</text>
+        <input placeholder="方便家人识别" value="{{joinNickname}}" bindinput="onJoinNicknameInput" class="form-input" />
+      </view>
+      <view class="form-item">
+        <text class="form-label">共享码</text>
+        <input type="number" maxlength="6" placeholder="输入6位数字" value="{{joinCode}}" bindinput="onJoinCodeInput" class="form-input" />
+      </view>
+      <view class="modal-buttons">
+        <view class="btn-cancel" bindtap="hideJoinModal">取消</view>
+        <view class="btn-confirm" bindtap="onJoinSubmit">加入</view>
+      </view>
+    </view>
+  </view>
+</view>

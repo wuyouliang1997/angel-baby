@@ -1,0 +1,7 @@
+<view class="baby-header">
+  <view class="baby-name">{{baby.nickname}}</view>
+  <view class="baby-avatar-wrapper" catchtap="onTapAvatar">
+    <image class="baby-avatar" src="{{displayAvatar}}" wx:if="{{displayAvatar}}"></image>
+    <view class="baby-avatar default-avatar" wx:else></view>
+  </view>
+</view>

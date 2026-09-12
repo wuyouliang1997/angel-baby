@@ -1,0 +1,56 @@
+page { background-color: #FFF5F5; min-height: 100vh; }
+.container { padding: 0; font-family: PingFang SC; padding-bottom: 180rpx; align-items: stretch; }
+
+.top-bar { padding: 20rpx 20rpx 0; text-align: right; }
+.btn-stats { display: inline-block; font-size: 28rpx; color: #EF5350; padding: 12rpx 24rpx; background: #fff0f0; border-radius: 20rpx; }
+
+.record-list { background: #fff; box-shadow: 0 4rpx 24rpx rgba(0,0,0,0.06); }
+.record-header { display: flex; align-items: center; padding: 24rpx 20rpx; background: #fafafa; border-bottom: 2rpx solid #f0f0f0; }
+.header-date { font-size: 24rpx; color: #999; font-weight: 600; width: 160rpx; flex-shrink: 0; }
+.header-source { width: 120rpx; font-size: 24rpx; color: #999; font-weight: 600; }
+.header-desc { flex: 1; font-size: 24rpx; color: #999; font-weight: 600; }
+.header-amount { width: 130rpx; font-size: 24rpx; color: #999; font-weight: 600; text-align: right; }
+.header-action { font-size: 24rpx; color: #999; font-weight: 600; flex-shrink: 0; }
+
+.record-item { display: flex; align-items: center; padding: 28rpx 20rpx; border-bottom: 1rpx solid #f5f5f5; }
+.record-item:last-child { border-bottom: none; }
+.record-date { font-size: 26rpx; color: #666; width: 160rpx; flex-shrink: 0; }
+.record-source { width: 120rpx; font-size: 26rpx; color: #333; }
+.record-desc { flex: 1; font-size: 24rpx; color: #999; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.record-amount { width: 130rpx; font-size: 28rpx; font-weight: 600; color: #EF5350; text-align: right; }
+.record-actions { display: flex; gap: 16rpx; flex-shrink: 0; }
+.btn-edit { font-size: 26rpx; color: #7EC8E3; padding: 10rpx 20rpx; background: #f0f8ff; border-radius: 10rpx; }
+.btn-delete { font-size: 26rpx; color: #ff6b6b; padding: 10rpx 20rpx; background: #fff0f0; border-radius: 10rpx; }
+
+.pagination { display: flex; align-items: center; justify-content: center; margin-top: 30rpx; gap: 16rpx; padding: 0 20rpx; }
+.page-btn { width: 64rpx; height: 64rpx; display: flex; align-items: center; justify-content: center; background: #fff; border-radius: 50%; font-size: 36rpx; color: #FF9B9B; box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.08); }
+.page-btn.disabled { opacity: 0.3; color: #ccc; }
+.page-info { font-size: 28rpx; color: #666; min-width: 80rpx; text-align: center; }
+.page-jump { display: flex; align-items: center; gap: 10rpx; margin-left: 16rpx; }
+.page-input { width: 80rpx; height: 56rpx; background: #fff; border-radius: 28rpx; text-align: center; font-size: 26rpx; box-shadow: 0 2rpx 10rpx rgba(0,0,0,0.06); }
+.page-go { height: 56rpx; padding: 0 24rpx; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FF9B9B, #FFB5B5); border-radius: 28rpx; font-size: 26rpx; color: #fff; font-weight: 600; }
+
+.list-footer { text-align: center; padding: 24rpx 20rpx; color: #ccc; font-size: 24rpx; }
+
+.empty-state { padding: 120rpx 40rpx; text-align: center; }
+.empty-icon { width: 140rpx; height: 140rpx; background: #f5f5f5; border-radius: 50%; margin: 0 auto 36rpx; }
+.empty-text { font-size: 34rpx; color: #999; margin-bottom: 16rpx; }
+.empty-hint { font-size: 28rpx; color: #ccc; }
+
+.add-btn { position: fixed; right: 50rpx; bottom: 120rpx; width: 120rpx; height: 120rpx; border-radius: 50%; background: linear-gradient(135deg, #FF9B9B, #FFB5B5); color: #fff; font-size: 64rpx; display: flex; align-items: center; justify-content: center; box-shadow: 0 10rpx 40rpx rgba(255,155,155,0.45); z-index: 50; }
+
+.modal-mask { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 100; display: flex; flex-direction: column; justify-content: flex-end; }
+.modal-close { flex: 1; }
+.modal-content { width: 100%; background: #fff; border-radius: 36rpx 36rpx 0 0; padding: 48rpx 40rpx; box-sizing: border-box; }
+.modal-header { text-align: center; margin-bottom: 48rpx; }
+.modal-title { font-size: 40rpx; font-weight: 600; color: #333; }
+
+.form-item { display: flex; align-items: center; padding: 36rpx 0; border-bottom: 1rpx solid #f5f5f5; }
+.form-label { font-size: 32rpx; color: #333; width: 180rpx; flex-shrink: 0; }
+.form-value { flex: 1; font-size: 32rpx; color: #666; text-align: right; }
+.form-arrow { font-size: 40rpx; color: #ccc; margin-left: 20rpx; }
+.form-input { flex: 1; font-size: 32rpx; color: #333; text-align: right; }
+
+.modal-buttons { display: flex; margin-top: 60rpx; gap: 36rpx; }
+.btn-cancel { flex: 1; height: 96rpx; display: flex; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 48rpx; font-size: 34rpx; color: #666; }
+.btn-confirm { flex: 1; height: 96rpx; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #FF9B9B, #FFB5B5); border-radius: 48rpx; font-size: 34rpx; color: #fff; }

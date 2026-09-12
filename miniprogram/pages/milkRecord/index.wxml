@@ -1,0 +1,98 @@
+<view class="container">
+  <!-- 日期导航 -->
+  <view class="date-nav">
+    <view class="date-arrow" bindtap="prevDay">
+      <text class="arrow-icon">‹</text>
+    </view>
+    <picker mode="date" value="{{currentDate}}" bindchange="onDateSelect">
+      <view class="date-display">{{currentDateDisplay}}</view>
+    </picker>
+    <view class="date-arrow {{isToday ? 'disabled' : ''}}" bindtap="nextDay">
+      <text class="arrow-icon">›</text>
+    </view>
+  </view>
+
+  <!-- 今日汇总 -->
+  <view class="summary-card">
+    <view class="summary-total">
+      <text class="summary-number">{{totalAmount}}</text>
+      <text class="summary-unit">ml</text>
+    </view>
+    <view class="summary-count">共 {{recordCount}} 次喂养</view>
+  </view>
+
+  <!-- 记录列表 -->
+  <view class="record-list">
+    <view class="record-item" wx:for="{{records}}" wx:key="_id">
+      <view class="record-content">
+        <view class="record-time">{{item.recordTime}}</view>
+        <view class="record-info">
+          <view class="record-amount">{{item.amount}}ml</view>
+          <view class="record-remark" wx:if="{{item.remark}}">{{item.remark}}</view>
+        </view>
+      </view>
+      <view class="record-actions">
+        <view class="btn-edit" bindtap="onEdit" data-id="{{item._id}}" data-time="{{item.recordTime}}"
+              data-amount="{{item.amount}}" data-remark="{{item.remark}}">修改</view>
+        <view class="btn-delete" bindtap="onDelete" data-id="{{item._id}}">删除</view>
+      </view>
+    </view>
+
+    <view class="load-more" wx:if="{{hasMore}}" bindtap="loadMore">
+      点击加载更多
+    </view>
+
+    <view class="empty-state" wx:if="{{records.length === 0}}">
+      <view class="empty-icon"></view>
+      <view class="empty-text">暂无记录</view>
+      <view class="empty-hint">点击下方按钮添加</view>
+    </view>
+  </view>
+
+  <!-- 添加按钮 -->
+  <view class="add-btn" bindtap="showAddModal">+</view>
+
+  <!-- 添加弹窗 -->
+  <view class="modal-mask" wx:if="{{showModal}}">
+    <view class="modal-close" bindtap="hideModal"></view>
+    <view class="modal-content">
+      <view class="modal-header">
+        <view class="modal-title">{{isEdit ? '修改记录' : '添加记录'}}</view>
+      </view>
+
+      <picker mode="date" value="{{formDate}}" bindchange="onDateChange">
+        <view class="form-item">
+          <text class="form-label">日期</text>
+          <text class="form-value">{{formDate || '选择日期'}}</text>
+          <text class="form-arrow">›</text>
+        </view>
+      </picker>
+
+      <picker mode="time" value="{{formTime}}" bindchange="onTimeChange">
+        <view class="form-item">
+          <text class="form-label">时间</text>
+          <text class="form-value">{{formTime || '选择时间'}}</text>
+          <text class="form-arrow">›</text>
+        </view>
+      </picker>
+
+      <view class="form-item">
+        <text class="form-label">奶量 (ml)</text>
+        <input type="number" placeholder="请输入奶量"
+               value="{{formAmount}}" bindinput="onAmountInput"
+               class="form-input" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">备注</text>
+        <input placeholder="可选备注" value="{{formRemark}}"
+               bindinput="onRemarkInput" class="form-input" />
+      </view>
+
+      <view class="modal-buttons">
+        <view class="btn-cancel" bindtap="hideModal">取消</view>
+        <view class="btn-confirm" bindtap="onAddConfirm">{{isEdit ? '修改' : '确定'}}</view>
+      </view>
+    </view>
+  </view>
+</view>

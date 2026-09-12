@@ -1,0 +1,27 @@
+<view class="cropper-container">
+  <!-- 裁剪区域 -->
+  <view class="cropper-area"
+    bindtouchstart="onTouchStart"
+    bindtouchmove="onTouchMove"
+    bindtouchend="onTouchEnd">
+    <!-- 图片 -->
+    <image class="cropper-image" src="{{src}}"
+      style="transform: translate({{offsetX}}px, {{offsetY}}px) scale({{scale}}) rotate({{rotate}}deg);"
+      mode="aspectFit"></image>
+    <!-- 圆形裁剪框 -->
+    <view class="cropper-mask">
+      <view class="cropper-box"></view>
+    </view>
+  </view>
+
+  <!-- 隐藏的裁剪画布 -->
+  <canvas type="2d" id="cropCanvas" class="crop-canvas"></canvas>
+
+  <!-- 底部工具栏 -->
+  <view class="cropper-toolbar">
+    <view class="cropper-btn" bindtap="cancel">取消</view>
+    <view class="cropper-btn" bindtap="onRotate">旋转</view>
+    <view class="cropper-btn" bindtap="onReset">重置</view>
+    <view class="cropper-btn confirm" bindtap="confirm">确定</view>
+  </view>
+</view>

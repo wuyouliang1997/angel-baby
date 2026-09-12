@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="form-header">
+    <view class="form-title">{{isEdit ? '修改宝宝' : '添加宝宝'}}</view>
+  </view>
+
+  <view class="form-content">
+    <view class="avatar-section" bindtap="chooseAvatar">
+      <image class="avatar-preview" src="{{avatar}}" wx:if="{{avatar}}"></image>
+      <view class="avatar-placeholder" wx:else>
+        <text class="avatar-icon"> </text>
+        <text class="avatar-text">选择头像</text>
+      </view>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">宝宝昵称</text>
+      <input placeholder="请输入宝宝昵称" value="{{nickname}}" bindinput="onNicknameInput" class="form-input" />
+    </view>
+
+    <picker mode="selector" range="{{['男', '女']}}" value="{{gender === '女' ? 1 : 0}}" bindchange="onGenderChange" wx:if="{{!isEdit}}">
+      <view class="form-item">
+        <text class="form-label">性别</text>
+        <text class="form-value">{{gender || '请选择性别'}}</text>
+        <text class="form-arrow">›</text>
+      </view>
+    </picker>
+
+    <view class="form-item" wx:if="{{isEdit}}">
+      <text class="form-label">性别</text>
+      <text class="form-value">{{gender || '未填写'}}</text>
+    </view>
+
+    <picker mode="date" value="{{birthDate}}" end="{{today}}" bindchange="onBirthDateChange" wx:if="{{!isEdit}}">
+      <view class="form-item">
+        <text class="form-label">出生日期</text>
+        <text class="form-value">{{birthDate || '请选择日期'}}</text>
+        <text class="form-arrow">›</text>
+      </view>
+    </picker>
+
+    <view class="form-item" wx:if="{{isEdit}}">
+      <text class="form-label">出生日期</text>
+      <text class="form-value">{{birthDate || '未填写'}}</text>
+    </view>
+  </view>
+
+  <view class="form-buttons">
+    <view class="btn-cancel" bindtap="onCancel">取消</view>
+    <view class="btn-confirm" bindtap="onSubmit">{{isEdit ? '保存' : '确定'}}</view>
+  </view>
+</view>

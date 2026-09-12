@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/home/index",
+    "pages/milkRecord/index",
+    "pages/milkAnalysis/index",
+    "pages/cropper/index",
+    "pages/babyForm/index",
+    "pages/growth/index",
+    "pages/growthRecord/index",
+    "pages/growthAnalysis/index",
+    "pages/ledger/index",
+    "pages/expenseRecord/index",
+    "pages/expenseStats/index",
+    "pages/giftRecord/index",
+    "pages/giftStats/index",
+    "pages/share/index"
+  ],
+  "window": {
+    "backgroundColor": "#FFF5F5",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF9B9B",
+    "navigationBarTitleText": "宝宝成长记录",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "baby-header": "/components/baby-header/index"
+  }
+}

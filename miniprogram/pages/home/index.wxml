@@ -1,0 +1,35 @@
+<!-- 宝宝信息头部 -->
+<baby-header baby="{{baby}}" bind:tapedit="onEditBaby" />
+
+<view class="container">
+  <!-- 今日奶量卡片 -->
+  <view class="today-card">
+    <view class="today-label">今日奶量</view>
+    <view class="today-amount">
+      <text class="amount-number">{{todayAmount}}</text>
+      <text class="amount-unit">ml</text>
+    </view>
+    <view class="today-count">共 {{todayCount}} 次喂养</view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goToMilkRecord">
+      <view class="menu-icon record-icon"></view>
+      <view class="menu-content">
+        <view class="menu-title">奶量记录</view>
+        <view class="menu-desc">记录宝宝每日喂养奶量</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+
+    <view class="menu-item" bindtap="goToAnalysis">
+      <view class="menu-icon analysis-icon"></view>
+      <view class="menu-content">
+        <view class="menu-title">奶量分析</view>
+        <view class="menu-desc">查看奶量趋势统计</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+</view>

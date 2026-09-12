@@ -1,0 +1,36 @@
+<baby-header baby="{{baby}}" bind:tapedit="onEditBaby" />
+
+<view class="container">
+  <!-- 本月汇总 -->
+  <view class="summary-card">
+    <view class="summary-item">
+      <view class="summary-label">本月开支</view>
+      <view class="summary-amount expense">¥{{monthExpense}}</view>
+    </view>
+    <view class="summary-divider"></view>
+    <view class="summary-item">
+      <view class="summary-label">本月礼金</view>
+      <view class="summary-amount gift">¥{{monthGift}}</view>
+    </view>
+  </view>
+
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goToExpense">
+      <view class="menu-icon expense-icon"></view>
+      <view class="menu-content">
+        <view class="menu-title">宝宝日常开支</view>
+        <view class="menu-desc">记录和管理日常消费支出</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+
+    <view class="menu-item" bindtap="goToGift">
+      <view class="menu-icon gift-icon"></view>
+      <view class="menu-content">
+        <view class="menu-title">宝宝礼金</view>
+        <view class="menu-desc">记录压岁钱和礼金收入</view>
+      </view>
+      <view class="menu-arrow">›</view>
+    </view>
+  </view>
+</view>

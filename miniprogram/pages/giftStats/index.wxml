@@ -1,0 +1,57 @@
+<view class="container">
+  <view class="filter-bar">
+    <picker mode="date" value="{{startDate}}" bindchange="onStartDateChange">
+      <text class="bar-date">{{startDate}}</text>
+    </picker>
+    <text class="bar-sep">至</text>
+    <picker mode="date" value="{{endDate}}" bindchange="onEndDateChange">
+      <text class="bar-date">{{endDate}}</text>
+    </picker>
+
+    <picker mode="selector" range="{{['本月','近三月','近半年','近一年']}}" value="{{periodIndex}}" bindchange="onPeriodChange">
+      <view class="bar-pick">
+        <text>{{['本月','近三月','近半年','近一年'][periodIndex]}}</text>
+        <text class="bar-arrow">›</text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索来源人或说明..." value="{{searchText}}" bindinput="onSearchInput" confirm-type="search" bindconfirm="onSearch" />
+    <view class="search-btn" bindtap="onSearch">搜索</view>
+  </view>
+
+  <view class="stats-table" wx:if="{{records.length > 0}}">
+    <view class="stats-header">
+      <text class="header-date">日期</text>
+      <text class="header-source">来源人</text>
+      <text class="header-desc">说明</text>
+      <text class="header-amt">金额</text>
+    </view>
+    <view class="stats-row" wx:for="{{records}}" wx:key="_id">
+      <text class="row-date">{{item.recordDate}}</text>
+      <text class="row-source">{{item.source}}</text>
+      <text class="row-desc">{{item.description || '--'}}</text>
+      <text class="row-amt">¥{{item.amount}}</text>
+    </view>
+    <view class="stats-total">
+      <text class="total-label">合计</text>
+      <text class="total-amt">¥{{totalAmount}}</text>
+      <text class="total-pct">{{totalCount}}笔</text>
+    </view>
+  </view>
+
+  <view class="pagination" wx:if="{{totalCount > 0}}">
+    <view class="page-btn {{currentPage <= 1 ? 'disabled' : ''}}" bindtap="prevPage">‹</view>
+    <view class="page-info"><text>{{currentPage}} / {{totalPages}}</text></view>
+    <view class="page-btn {{currentPage >= totalPages ? 'disabled' : ''}}" bindtap="nextPage">›</view>
+    <view class="page-jump">
+      <input class="page-input" type="number" placeholder="页码" value="{{jumpPage}}" bindinput="onJumpInput" />
+      <view class="page-go" bindtap="jumpToPage">Go</view>
+    </view>
+  </view>
+
+  <view class="empty-state" wx:if="{{records.length === 0}}">
+    <view class="empty-text">暂无礼金数据</view>
+  </view>
+</view>
